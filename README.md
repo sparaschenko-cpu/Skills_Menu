@@ -1,6 +1,6 @@
-# agents-super-skills
+# Skills Menu
 
-A curated repository of reusable AI agent skills and agent-workflow toolkits.
+A curated menu of reusable AI-agent skills and workflow toolkits.
 
 The collection combines:
 - standalone skill packages with a top-level `SKILL.md` entrypoint;
@@ -15,6 +15,12 @@ The collection combines:
 | `presentation-builder-prompter` | Generates a self-contained Russian master prompt for interactive single-file HTML presentations with strong narrative structure, polished motion, and live-demo-friendly UX. |
 | `agent-architect` | Designs production-grade AI-agent architecture for Claude (orchestration pattern, MCP/tooling setup, reliability, escalation, and production checklist). |
 | `skill-creator` | A comprehensive skill-authoring toolkit imported from Anthropic's skills collection (evaluation scripts, references, assets, and packaging helpers). |
+
+## Quick Start
+
+- Open a standalone skill folder and use its `SKILL.md` as the entrypoint.
+- For full differential-diagnostic workflows, use `DDX HS/` as a complete workspace toolkit.
+- Keep new additions at the repository root so they are discoverable immediately.
 
 ## Included Workflow Toolkits
 
@@ -49,3 +55,4 @@ skill-creator/
 - Standalone skill folders use a `SKILL.md` entrypoint.
 - `DDX HS` is a full workflow toolkit (not a single-skill package) and is intended to be used as a structured workspace.
 - Most custom authored materials in this repository are designed for Russian-language workflows.
+- The repository is organized as a flat top-level menu (no extra wrapper folder for skills).
