@@ -10,6 +10,7 @@ The collection combines:
 
 | Skill | Description |
 | --- | --- |
+| `CEO Council Skill` | Launches multiple independent C-level sub-agents to analyze the same project context and synthesize consensus, disagreements, and strategic decisions. |
 | `deep-research-prompter` | Generates a self-contained Russian master prompt for deep research workflows with explicit planning, evidence standards, and source hygiene. |
 | `frontend-design-prompter` | Generates a self-contained Russian master prompt for production-ready frontend design workflows based on GPT-5.4-oriented implementation guidelines. |
 | `presentation-builder-prompter` | Generates a self-contained Russian master prompt for interactive single-file HTML presentations with strong narrative structure, polished motion, and live-demo-friendly UX. |
@@ -19,8 +20,17 @@ The collection combines:
 ## Quick Start
 
 - Open a standalone skill folder and use its `SKILL.md` as the entrypoint.
+- For `CEO Council Skill/`, start with `SKILL.md` for execution logic and use `README.md` or `README.ru.md` for human-facing overview.
 - For full differential-diagnostic workflows, use `DDX HS/` as a complete workspace toolkit.
 - Keep new additions at the repository root so they are discoverable immediately.
+
+## Spotlight: CEO Council Skill
+
+`CEO Council Skill/` is a standalone multi-agent strategy package for project analysis through independent expert lenses.
+
+- `SKILL.md` defines the operating workflow for assembling a council, launching parallel expert sub-agents, and synthesizing results.
+- `README.md` provides the English overview and usage examples.
+- `README.ru.md` provides the Russian overview and usage examples.
 
 ## Included Workflow Toolkits
 
@@ -35,6 +45,10 @@ DDX HS/
   .cursor/
   Artifacts/
   Manual/
+CEO Council Skill/
+  SKILL.md
+  README.md
+  README.ru.md
 agent-architect/
   SKILL.md
   references/
@@ -53,6 +67,7 @@ skill-creator/
 ## Notes
 
 - Standalone skill folders use a `SKILL.md` entrypoint.
+- Some standalone skills also include localized README files for easier human navigation.
 - `DDX HS` is a full workflow toolkit (not a single-skill package) and is intended to be used as a structured workspace.
 - Most custom authored materials in this repository are designed for Russian-language workflows.
 - The repository is organized as a flat top-level menu (no extra wrapper folder for skills).
