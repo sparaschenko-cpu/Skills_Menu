@@ -2,7 +2,7 @@
 
 A small repository of reusable AI agent skills.
 
-The current collection contains prompt-oriented skills for AI agents. The skill bodies are authored in Russian and live as standalone `SKILL.md` files under `skills/`.
+The current collection contains prompt-oriented skills for AI agents. The skill bodies are authored in Russian and live as standalone `SKILL.md` files in top-level skill directories.
 
 ## Included Skills
 
@@ -15,13 +15,12 @@ The current collection contains prompt-oriented skills for AI agents. The skill 
 ## Repository Structure
 
 ```text
-skills/
-  deep-research-prompter/
-    SKILL.md
-  frontend-design-prompter/
-    SKILL.md
-  presentation-builder-prompter/
-    SKILL.md
+deep-research-prompter/
+  SKILL.md
+frontend-design-prompter/
+  SKILL.md
+presentation-builder-prompter/
+  SKILL.md
 ```
 
 ## Notes
