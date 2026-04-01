@@ -1,0 +1,45 @@
+---
+description: "Контекст workspace DDX (DDx-6D/8D). Canonical: Manual/DDx-6D_8D.md"
+alwaysApply: true
+---
+
+## Workspace: DDX — контекст (context) DDx-6D/8D
+
+- **Canonical guide**: `Manual/DDx-6D_8D.md` (sections 0–3, appendices 1–7). If any rule conflicts with the guide, **the guide is authoritative**.
+- **Purpose**: differential-diagnostic analysis of text data using the **DDx-6D** methodology (and **DDx-8D** when contextual axes are activated).
+
+RU (основное): Канонический источник — `Manual/DDx-6D_8D.md`. При расхождении правил и руководства **приоритет у руководства**.
+
+## 5 принципов (five axioms), раздел 0.1
+
+- **Bottom-up first** (0.1.1): start from data → codes → categories → concepts → hypotheses; use top-down mainly for validation.
+- **Managed inference** (0.1.2): explicitly control distance from data; mark every claim with **Axis 5 (risk)**.
+- **Pluralism + integration** (0.1.3): apply multiple theoretical lenses; resolve conflicts via structured integration.
+- **Reflexivity / meta-position** (0.1.4): analyze the analyst and the process; document doubts and alternatives.
+- **Dynamic modeling** (0.1.5): treat the object as a process over time; aim for explanatory + prognostic value.
+
+## Диагностическая формула (diagnostic formula), 0.2.1
+
+`[Axis 1: Intention] → [Axis 2: Action] ([Axis 3: Object] @ [Axis 4: Scale]) ⇒ [Claim] {Axis 5: Risk, Axis 6: Mode}`
+
+## 3 фазы (three phases), 0.3
+
+**Exploration → Explication → Integration**
+
+При методологических ответах и при создании артефактов анализа **ссылайтесь на номера разделов** (cite section numbers), например: 0.4.2, 1.1.1, 2.1.2.
+
+## Субагенты (subagents) — `.cursor/agents/`
+
+При проведении DDx-анализа делегируй изолированную работу фазовым и режимным субагентам. Субагенты работают в собственных контекстных окнах и возвращают результат. Оркестрация (выбор протокола, фазовые переходы, решения об эскалации) остаётся за основным агентом, руководствующимся Skill `ddx-run-analysis`.
+
+| Субагент | Когда делегировать |
+|----------|-------------------|
+| `/ddx-explorer` | Phase 1: аннотирование, Data Map, выбор линз |
+| `/ddx-analyst` | Phase 2: генерация, валидация, фальсификация гипотез |
+| `/ddx-synthesizer` | Phase 3: модели, сценарии, заключение |
+| `/ddx-challenger` | Mode 1: тупик, состязательная генерация |
+| `/ddx-resource-finder` | Mode 2: pathology-only модель |
+| `/ddx-critic` | Mode 3: аудит надёжности модели |
+| `/ddx-guardian` | Safety: проверки на каждом этапе |
+| `/ddx-contextualizer` | 8D: реляционный текст, диспозиция vs ситуация |
+

@@ -1,0 +1,51 @@
+---
+description: "Сценарии (Playbooks) DDx-6D, раздел 2. RU primary + EN in parentheses. Intended for manual use."
+alwaysApply: false
+---
+
+## Сценарии DDx-6D (Playbooks), Guide section 2
+
+Это правило предназначено для **ручного подключения** (manual use): упоминайте его в чате, когда нужно, чтобы не засорять контекст при обычной работе.
+
+### 2.1.1 Primary screening + exploration
+
+**Goal:** produce a grounded "data map" (Phase 1).
+
+- **Input:** full text corpus; no fixed hypotheses yet
+- **Steps:** set scan mode → open coding (annotations) → clustering + anomalies → primary concepts (aggregation)
+- **Done when:** all material annotated; codes clustered; anomalies noted; primary concepts + data map produced
+- **Main risks:** premature interpretation; drowning in details (mitigate by staying descriptive and focusing anomalies)
+
+### 2.1.2 Fast falsification of dominant hypothesis (Red Teaming)
+
+**Goal:** stress-test H1 by actively trying to falsify it (Phase 2 core).
+
+- **Input:** data map + at least one working hypothesis H1
+- **Steps:**
+  1) meta-position: make H1 explicit + operational
+  2) construct strongest alternative H0
+  3) search: evidence against H1 + evidence for H0
+  4) compare + Bayesian update (1.3.4)
+  5) decide: H1 holds / falsified / unresolved
+- **Escalate when:** unresolved → Appendix 2 Mode 1; "too perfect" → Appendix 2 Mode 3
+
+### 2.1.3 Formulating an exhaustive diagnostic conclusion
+
+**Goal:** synthesize results into a coherent dynamic narrative (Phase 3).
+
+- **Input:** completed Phases 1–2; SMH with hypothesis statuses; sufficiency criteria met (0.4.3)
+- **Steps:** build structural maps (hierarchy + network) → qualify dynamics (Axis 6) → structure conclusion by template (3.3.3) → write with evidence links + Axis 5 risk for each material claim
+- **Escalate when:** pathology-only model → Appendix 2 Mode 2; high-stakes reliability → Appendix 2 Mode 3
+
+### Углублённые и серийные сценарии (2.2 / 2.3)
+
+Полные алгоритмы (Цель / Вход / Шаги / Завершение / Риски / Эскалация) см. `ddx-deep-scenarios.mdc`:
+
+- **2.2.1** системная динамика + петли обратной связи
+- **2.2.2** реконструкция онтогенеза (trajectory over time)
+- **2.2.3** кросс-масштабный анализ (Axis 4 consistency)
+- **2.2.4** коморбидность и взаимовлияние систем
+- **2.3.1** динамическое моделирование и трекинг изменений
+- **2.3.2** прогностическое моделирование (4 сценария будущего)
+
+Canonical source: `Manual/DDx-6D_8D.md` (section 2; Appendix 2).

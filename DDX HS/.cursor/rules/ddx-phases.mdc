@@ -1,0 +1,65 @@
+---
+description: "Фазы DDx-6D (0.3) + протоколы переключения (0.4.2) + критерии достаточности (0.4.3). RU primary + EN in parentheses. Canonical: Manual/DDx-6D_8D.md"
+alwaysApply: false
+---
+
+## Макро-процесс DDx-6D (DDx-6D macro-process), Guide 0.3
+
+### Фаза 1 — Исследование (Phase 1 — Exploration), 0.3.1
+
+- **Цель (Goal)**: широкое непредвзятое погружение; поиск значимых феноменов; формирование заземлённых первичных концептов (grounded primary concepts).
+- **Dominant axes**: Intention 1.1; Action 2.0 (deconstruction); Object A.0; Risk 1–2; Mode N/A.
+- **Core steps**: full read → open coding (annotations) → categorization + anomalies → primary concepts → “data map”.
+- **Output**: codes, categories, primary concepts, anomalies/lacunae list, data map.
+
+### Фаза 2 — Экспликация (Phase 2 — Explication), 0.3.2
+
+- **Цель (Goal)**: построение и проверка гипотез (morphogenesis / etiology / ontogenesis) через итерации “generate–falsify”.
+- **Dominant axes**: toggle Intention 1.2 ↔ 2.1; Object shifts to B.0; Scale 3–4.
+- **Risk policy**: allow 3–4 for generation; **force 1–2 for validation**.
+- **Output**: a managed hypothesis set (SMH) with statuses, evidence links, updated confidence.
+
+### Фаза 3 — Интеграция (Phase 3 — Integration), 0.3.3
+
+- **Цель (Goal)**: синтез валидированных гипотез в согласованную **динамическую** модель + каркас заключения (conclusion scaffold).
+- **Dominant axes**: Intention 3.2; Action 3.0 (transformation); Scale 4–5; **Axis 6 is central**.
+- **Core steps**: structural map (graph) → assign modes (Axis 6) → system dynamics (feedback loops) → time axis (ontogenesis) → final integrative meta-model.
+- **Output**: structural + dynamic + historical model; ready for conclusion template (3.3.3).
+
+---
+
+## Протоколы переключения (Switching protocols), Guide 0.4.2
+
+Use these as “traffic rules” between analytic cycles:
+
+1. **Divergence → Convergence**: after exploration/generation, run validation/evaluation to prevent endless expansion.
+2. **Anomaly found → Probing**: switch from scanning to focused probing when you see contradictions/lacunae/outliers.
+3. **Falsification → Generation**: if central H1 is falsified, switch to constructing alternatives (H0 / new H).
+4. **High risk (4–5) → Low-risk validation**: any analogical/transgressive move must be followed by strict validation.
+5. **Analytic dead-end → Meta-position (4.1)**: if cycles stall, analyze the analyst and the method (Object C.2 / C.1).
+
+---
+
+## Критерии остановки: аналитическая достаточность (Stopping criteria: analytic sufficiency), Guide 0.4.3
+
+Stop only when all three “legs” are satisfied:
+
+### A) Data completeness
+
+- Entire material analyzed
+- Key anomalies/lacunae addressed or explicitly documented as unresolved-but-significant
+- Theoretical saturation: new cycles add little new, no meaningful model change
+
+### B) Model coherence
+
+- Internal non-contradiction
+- Explains maximal facts with minimal ad hoc assumptions
+- Central hypotheses survived targeted falsification; alternatives considered and rejected with reasons
+
+### C) Pragmatic value
+
+- Explains morphogenesis / etiology / ontogenesis at adequate depth
+- Produces testable forecasts (with risk qualification)
+- Answers the original diagnostic question (scope-fit)
+
+Canonical source: `Manual/DDx-6D_8D.md` (0.3; 0.4.2; 0.4.3).

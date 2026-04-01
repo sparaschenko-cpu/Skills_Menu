@@ -1,0 +1,80 @@
+---
+description: "Оси DDx-6D + диагностическая формула (Guide 0.2). RU primary + EN in parentheses. Canonical: Manual/DDx-6D_8D.md"
+alwaysApply: false
+---
+
+## Ядро грамматики DDx-6D (DDx-6D core grammar), Guide 0.2
+
+### Диагностическая формула (Diagnostic formula), 0.2.1
+
+`[Axis1:Intention] → [Axis2:Action] ([Axis3:Object] @ [Axis4:Scale]) ⇒ [Claim] {Axis5:Risk, Axis6:Mode}`
+
+**Порядок кодирования Блока 1 (Block-1 coding order), 1.1.2:** Intention (Интенция) → Object+Scale (Объект+Масштаб) → Action (Действие) → Risk (Риск) → Mode (Режим) (или `N/A`).
+
+---
+
+## Ось 1 — Интенция (Axis 1 — Intention), “Why?”, 0.2.2
+
+- **1.0 Divergent**: 1.1 Exploration, 1.2 Generation
+- **2.0 Convergent**: 2.1 Validation, 2.2 Evaluation
+- **3.0 Transformational**: 3.1 Optimization, 3.2 Integration
+- **4.0 Meta**: 4.1 Calibration (meta-position)
+
+---
+
+## Ось 2 — Действие (Axis 2 — Action), “How?”, 0.2.3
+
+- **1.0 Reframing**: 1.1 Perspective, 1.2 Context, 1.3 Mode (diagnostician state)
+- **2.0 Deconstruction**: 2.1 Structural, 2.2 Logical
+- **3.0 Transformation**: 3.1 Structural, 3.2 Semantic
+
+Эвристика (Heuristic): деконструкция (Deconstruction) обычно снижает риск; семантическая трансформация (Semantic transformation) чаще повышает риск (Axis 5).
+
+---
+
+## Ось 3 — Объект (Axis 3 — Object), “To what?”, 0.2.4
+
+- **A.0 Empirical basis (data)**:
+  - **A.1** unit data (words, micro-signals)
+  - **A.2** structured data (narratives, themes, lacunae)
+- **B.0 Analytic model (constructs)**:
+  - **B.1** diagnostic hypothesis
+  - **B.2** causal model
+- **C.0 Diagnostic process (analysis)**:
+  - **C.1** logic of inference
+  - **C.2** diagnostician as instrument
+
+---
+
+## Ось 4 — Масштаб (Axis 4 — Scale), “At what level?”, 0.2.5
+
+1. Sub-element (micro) → 2. Element → 3. Complex (patterns) → 4. System → 5. Meta-system
+
+Цель (Aim): кросс-масштабная согласованность (cross-scale coherence) (см. Scenario 2.2.3).
+
+---
+
+## Ось 5 — Риск инференции (Axis 5 — Inference risk), “How certain?”, 0.2.6
+
+1. **Descriptive** (facts)  
+2. **Logical/structural** (formal inference / re-organization)  
+3. **Abductive** (most likely explanation)  
+4. **Analogical** (creative transfer)  
+5. **Transgressive** (counter-intuitive leap)
+
+Правила (Rules):
+- Build a **pyramid of evidence** (many 1–2 claims, fewer 3, rare 4–5).
+- Any 4–5 claim triggers **Scenario 2.1.2** (fast falsification).
+
+---
+
+## Ось 6 — Режим функционирования (Axis 6 — Mode of functioning), “How does it operate?”, 0.2.7
+
+Используйте преимущественно в **Фазе 3 (Integration / Интеграция)** для квалификации динамики:
+
+- **1.0 Activity** (norm / hypo / hyper / a-function)
+- **2.0 Quality/pattern** (dys-/para-function; cyclic/oscillating/fluctuating)
+- **3.0 System organization** (rigid/fragile; fused; fragmented/dissociated)
+- **4.0 System dynamics** (escalating/de-escalating; recursive; emergent/synergetic)
+
+Canonical source: `Manual/DDx-6D_8D.md` (0.2.1–0.2.7; glossary 3.1.1).

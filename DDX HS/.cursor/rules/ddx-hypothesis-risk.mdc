@@ -1,0 +1,56 @@
+---
+description: "Управление гипотезами (SMH) + дисциплина H1/H0 + контроль риска (Axis 5). RU primary + EN in parentheses."
+alwaysApply: false
+---
+
+## Ось 5 (риск) обязательна для каждого утверждения (Axis 5 / risk), Guide 0.1.2; 0.2.6
+
+Уровни риска (Risk levels):
+
+1. **Descriptive**: direct registration, no interpretation
+2. **Logical/structural**: formal inference / structural regrouping
+3. **Abductive**: most probable explanation (standard working hypothesis)
+4. **Analogical**: creative transfer from another model/domain
+5. **Transgressive**: counter-intuitive leap beyond obviousness
+
+Правила (Rules):
+
+- Build a **pyramid of evidence**: many (1–2) → fewer (3) → rare (4–5).
+- Any (4–5) claim **must** be followed by low-risk validation.
+- Any (4–5) claim triggers **Scenario 2.1.2** (fast falsification / red teaming).
+
+---
+
+## Дисциплина H1 vs H0 (H1 vs H0 discipline), Scenario 2.1.2
+
+When a dominant hypothesis appears (H1), immediately create a strong alternative (H0).
+
+Цикл валидации (Validation loop):
+
+1. **Meta-position**: make H1 explicit and operational (1.1.4).
+2. **Construct H0**: generate the strongest plausible alternative, not a strawman.
+3. **Search**:
+   - evidence *against* H1
+   - evidence *for* H0
+4. **Compare**: explanatory power + economy; update confidence (Bayesian update, 1.3.4).
+5. **Decide**: H1 holds / H1 falsified / unresolved → escalate (Appendix 2 Mode 1 or Mode 3).
+
+---
+
+## СМГ (SMH) — система управления гипотезами (System of Managing Hypotheses), Guide 1.3; Appendix 5
+
+Maintain a hypothesis registry where each hypothesis has:
+
+- **ID** (H-001…)
+- **Status** (candidate / working / validated / rejected / merged)
+- **Operational definition** + expected indicators
+- **Linked evidence** (annotation IDs that support/falsify/modify it)
+- **Risk level** for each claim cluster
+- **Competing hypotheses** (explicit rivals)
+
+When the pool becomes large (≈7–10+), use:
+
+- **Validation Funnel** (Appendix 3) to prune and prioritize
+- **Evidence Matrix** and **Hypothesis Map** (Appendix 5) to keep coherence
+
+Canonical source: `Manual/DDx-6D_8D.md` (0.2.6; 1.3; 2.1.2; Appendices 3 and 5).

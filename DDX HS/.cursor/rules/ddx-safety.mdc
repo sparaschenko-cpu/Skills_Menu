@@ -1,0 +1,64 @@
+---
+description: "Аналитическая безопасность DDx (Прил.4): Нулевая точка, презумпция здоровья, функциональная гипотеза, аффективный резонанс, внутренний red teaming, внешняя супервизия."
+alwaysApply: false
+---
+
+## Аналитическая безопасность (Analytic safety), Приложение 4
+
+Цель (Purpose): снизить риск ятрогенной патологизации, удерживать эпистемическую скромность и формализовать самокритику.
+
+### Презумпция здоровья (Presumption of health) (Прил.4, 0.0.3)
+
+- По умолчанию любой феномен трактуется как **осмысленный/функциональный/адаптивный**, пока не доказано обратное.
+- Бремя доказательства лежит на гипотезе патологии (H-Pathology); конкурирующая H-Adaptive формулируется по умолчанию и фальсифицируется, а не игнорируется.
+
+### Pre-analysis: “Zero Point” checklist (Appendix 4; Appendix 7)
+
+Before starting Phase 1:
+
+- Identify likely biases (confirmation, anchoring, theory preference).
+- Confirm bottom-up commitment (do not start with macro-labels).
+- Declare constraints (time pressure, stakeholder demands) as context.
+
+Use the shortened version for quick work; the full version is required for Standard/Max protocols (Appendix 7).
+
+### Explicate theoretical preferences (Appendix 4)
+
+Before major interpretations:
+
+- State your preferred lenses explicitly (Paradigm → Theory).
+- Note where they may create blind spots.
+- Treat lenses as tools; require cross-lens checks (pluralism).
+
+### Mandatory functional / resource balance (Appendix 4; Appendix 2 Mode 2)
+
+- Do not stop at “what is broken”; also model **what works** and adaptive resources.
+- If the model is pathology-only, trigger **Mode 2 (Resource Analysis)** and integrate it into the conclusion.
+
+### Обязательная функциональная гипотеза (Adaptive Hypothesis Protocol) (Прил.4, 2.1)
+
+- Для каждой H-Pathology (феномен как дефицит/дисфункция) **обязательна** конкурирующая H-Adaptive о **той же** “мишени”.
+- Проверка выполняется строго по **Сценарию 2.1.2** (fast falsification / red teaming): искать данные *против* H-Pathology и *за* H-Adaptive.
+
+### Анализ аффективного резонанса (Affective resonance) (Прил.4, 1.3)
+
+- Сильные эмоции аналитика фиксируются в **Блоке 4** аннотации.
+- Затем применяется принцип генерации «от рефлексии» (1.2.1.3): “что если эмоция индуцирована текстом и является данными?”
+- Результат — гипотеза-кандидат, которая затем проходит обычную валидацию (не выше риска 3 без строгой проверки).
+
+### Final safety layer: Internal Red Teaming (Appendix 4, 3.1)
+
+Before finalizing the integrative model / conclusion:
+
+- Attack your own model: search for disconfirming evidence, overfit, hidden assumptions.
+- Ensure high-risk claims (Axis 5: 4–5) have strict low-risk validation passes.
+- If the model feels “too smooth” or stakes are high, trigger **Mode 3 (Meta-critique)**.
+
+### External supervision (Appendix 4, 3.2)
+
+For sensitive, contested, or high-impact conclusions:
+
+- Submit the conclusion (or the non-methodological part) for independent review.
+- Treat disagreements as signals for re-validation, not as noise to ignore.
+
+Canonical source: `Manual/DDx-6D_8D.md` (Appendix 4; Appendix 7; Appendix 2 Mode 2/3).

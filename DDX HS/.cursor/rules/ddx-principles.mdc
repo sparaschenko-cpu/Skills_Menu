@@ -1,0 +1,49 @@
+---
+description: "Принципы DDx-6D/8D (0.1.1–0.1.5) + триггеры продвинутых режимов (Прил.2). DDx principles + advanced modes triggers."
+alwaysApply: false
+---
+
+## 5 принципов (five axioms), Guide 0.1 / Manual/DDx-6D_8D.md
+
+Use these as non-negotiable constraints when building or critiquing an analysis process.
+
+### 0.1.1 Приоритет восходящего анализа (Bottom-up priority)
+
+- Start from **data**: open coding → categories → primary concepts → hypotheses.
+- Delay macro-labels and theory until there is a grounded base.
+- Use top-down mainly for **validation** (generate bottom-up, test top-down).
+
+### 0.1.2 Управляемая инференция (Managed inference)
+
+- Every claim must be qualified by **Axis 5 (risk)**.
+- Build a **pyramid of evidence**: many low-risk claims (1–2) → fewer abductive (3) → rare high-risk (4–5).
+- Any risk 4–5 claim triggers **fast falsification** (Scenario 2.1.2).
+
+### 0.1.3 Методологический плюрализм и интеграция (Pluralism + integration)
+
+- Apply **multiple theoretical lenses** to the same phenomenon (record lens explicitly).
+- Treat lenses as **complementary**, not dogma; handle conflicts via integration.
+
+### 0.1.4 Рефлексивность и мета-позиция (Reflexivity / meta-position)
+
+- Make the diagnostic process (Object C.0) and the diagnostician (C.2) legitimate analysis objects.
+- Document doubts, counter-interpretations, affect, and contextual pressure.
+- Use **meta-pauses** when stuck or when conclusions feel “too smooth”.
+
+### 0.1.5 Динамическое моделирование (Dynamic modeling)
+
+- Prefer “how it works and changes” over static labels.
+- Keep the triad in view: **morphogenesis (now)**, **etiology (triggers)**, **ontogenesis (trajectory)**.
+- Use **Axis 6** to qualify dynamic patterns (mostly in Phase 3).
+
+## Триггеры эскалации → продвинутые режимы (Escalation triggers → Appendix 2)
+
+Use advanced modes as *controlled exceptions* when the standard workflow is insufficient.
+
+- **Mode 1: Adversarial / Contesting Generation**: when the analysis is rigid, hypotheses are few, or you need strong radical alternatives after “H1 vs H0” stalls.
+- **Mode 2: Resource Analysis**: when the model is one-sided (pathology-only) and must include adaptive resources and salutogenic factors.
+- **Mode 3: Meta-critique of the model**: when the central model seems “too perfect”, stakes are high, or maximum reliability is needed (audit + reliability passport for the methodological appendix).
+
+## Канонический источник (Canonical source)
+
+См. `Manual/DDx-6D_8D.md` (0.1; Приложение 2 / Appendix 2).
