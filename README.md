@@ -15,6 +15,7 @@ The collection combines:
 | `frontend-design-prompter` | Generates a self-contained Russian master prompt for production-ready frontend design workflows based on GPT-5.4-oriented implementation guidelines. |
 | `presentation-builder-prompter` | Generates a self-contained Russian master prompt for interactive single-file HTML presentations with strong narrative structure, polished motion, and live-demo-friendly UX. |
 | `agent-architect` | Designs production-grade AI-agent architecture for Claude (orchestration pattern, MCP/tooling setup, reliability, escalation, and production checklist). |
+| `audit-polnoty-prinimaemogo-ekspertnogo-resheniya` | Provides a Russian-language protocol for exhaustive step-by-step audits of expert decision completeness, from sources and evidence to claims, authority, risk, gates, traceability, and revision. |
 | `skill-creator` | A comprehensive skill-authoring toolkit imported from Anthropic's skills collection (evaluation scripts, references, assets, and packaging helpers). |
 
 ## Quick Start
@@ -52,6 +53,10 @@ CEO Council Skill/
 agent-architect/
   SKILL.md
   references/
+audit-polnoty-prinimaemogo-ekspertnogo-resheniya/
+  SKILL.md
+  references/
+  evals/
 deep-research-prompter/
   SKILL.md
 frontend-design-prompter/
