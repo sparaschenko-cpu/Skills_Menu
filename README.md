@@ -15,6 +15,7 @@ The collection combines:
 | `frontend-design-prompter` | Generates a self-contained Russian master prompt for production-ready frontend design workflows based on GPT-5.4-oriented implementation guidelines. |
 | `presentation-builder-prompter` | Generates a self-contained Russian master prompt for interactive single-file HTML presentations with strong narrative structure, polished motion, and live-demo-friendly UX. |
 | `agent-architect` | Designs production-grade AI-agent architecture for Claude (orchestration pattern, MCP/tooling setup, reliability, escalation, and production checklist). |
+| `atomic-agent-designer` | Guides atomic agent design through structured dialogue: dual-flow (top-down process map + bottom-up reality), DIKW transformations, Kolb learning cycle. Two modes — single task or full process. Output is an Agent Card. |
 | `audit-prinimaemogo-ekspertnogo-resheniya` | Provides a Russian-language protocol for exhaustive step-by-step audits of expert decision completeness, from source material and evidence to claim boundary, authority, risk acceptance, gates, traceability, and revision. |
 | `skill-creator` | A comprehensive skill-authoring toolkit imported from Anthropic's skills collection (evaluation scripts, references, assets, and packaging helpers). |
 
@@ -32,6 +33,17 @@ The collection combines:
 - `SKILL.md` defines the operating workflow for assembling a council, launching parallel expert sub-agents, and synthesizing results.
 - `README.md` provides the English overview and usage examples.
 - `README.ru.md` provides the Russian overview and usage examples.
+
+## Spotlight: atomic-agent-designer
+
+`atomic-agent-designer/` is a structured skill for designing atomic agents — agents that perform exactly one DIKW transition.
+
+- `SKILL.md` defines the Agent Architect persona and full 5-phase workflow (Map → Ground → Contract → Validate → Agent Card).
+- `METHODOLOGY.md` contains the theoretical foundation: dual-flow philosophy, DIKW vertical axis, Kolb learning cycle, atomicity test, and the Agent Card template.
+
+Two modes:
+- **Mode A** — start with a specific pain point and get a single Agent Card.
+- **Mode B** — start with a whole process, map DIKW slots, then design agents for each slot and build a composition map.
 
 ## Included Workflow Toolkits
 
@@ -53,6 +65,9 @@ CEO Council Skill/
 agent-architect/
   SKILL.md
   references/
+atomic-agent-designer/
+  SKILL.md
+  METHODOLOGY.md
 audit-prinimaemogo-ekspertnogo-resheniya/
   SKILL.md
   references/
