@@ -25,6 +25,42 @@
 
 Главная проверка: каждый переход должен быть назван, ограничен, проверен и трассируем.
 
+## 0.1 Обязательные статусы
+
+Используй только эти статусы полноты:
+
+- `complete`
+- `partial`
+- `missing`
+- `implicit`
+- `deferred`
+- `out_of_scope`
+- `not_applicable`
+- `prohibited`
+
+Никогда не оставляй шаг или координату без статуса.
+
+## 0.2 Обязательные уровни дефектов
+
+- `BLOCKING`: нельзя считать решение допустимым к consequential use/release.
+- `MAJOR`: существенный риск неполноты, требует условия до использования.
+- `MINOR`: локальная неполнота без немедленного блокирования.
+- `NOTE`: полезное наблюдение без статуса дефекта.
+
+## 0.3 Stop-rules (немедленный BLOCKING)
+
+Немедленно маркируй аудит как `blocked`, если обнаружено хотя бы одно:
+
+- claim scope шире evidence scope;
+- score/output/confidence используется как permission;
+- recommendation превращена в decision без authority;
+- source вне source frame поддерживает claim;
+- отсутствует recourse при consequential decision;
+- residual risk не принят уполномоченной ролью;
+- review подменяет approval;
+- release/use condition не отделено от readiness;
+- путь от evidence до decision/action не восстанавливается.
+
 ## 1. Intake
 
 Сначала восстанови карту запроса:
@@ -40,7 +76,27 @@
 9. `audit_scope`: что входит и что не входит в аудит.
 10. `known_constraints`: legal, ethical, privacy, security, technical, organizational.
 
-Если элемент не указан, не выдумывай. Пометь статусом `missing` или `implicit`.
+Если элемент не указан, не выдумывай. Пометь статусом `missing`, `implicit` или `deferred`.
+
+## 1.1 Минимальный intake output
+
+Перед переходом к следующему шагу зафиксируй:
+
+```text
+intake_status:
+  decision_statement: ...
+  decision_context: ...
+  decision_target: ...
+  proposed_action: ...
+  authority: ...
+  evidence_package: ...
+  time_boundary: ...
+  risk_profile: ...
+  audit_scope: ...
+  known_constraints: ...
+intake_gaps:
+  - ...
+```
 
 ## 2. Построение карты решения
 
@@ -59,6 +115,8 @@
 
 Не переходи к verdict, пока не отделены `claim`, `recommendation`, `decision` и `release/use condition`.
 
+Если `Object`, `Target`, `Claim`, `Action` или `Authority` имеют `missing`, итог не может быть `ready`.
+
 ## 3. Аудит трассы решения
 
 Проверяй трассу последовательно. Для каждого шага фиксируй:
@@ -70,6 +128,7 @@
 - `owner/reviewer`: кто отвечает за шаг.
 - `evidence`: чем подтверждено, что шаг выполнен.
 - `defect`: что отсутствует, смешано или не трассируется.
+- `status`: complete/partial/missing/implicit/deferred/out_of_scope/not_applicable/prohibited.
 
 ### 3.1 Source -> source segment
 
@@ -82,6 +141,8 @@
 
 Блокирующий дефект: claim опирается на источник вне source frame или без provenance, когда provenance нужен для доверия.
 
+Required evidence для `complete`: source frame, locator, provenance note, source constraints.
+
 ### 3.2 Source segment -> context unit -> evidence unit
 
 Проверь:
@@ -93,6 +154,8 @@
 
 Блокирующий дефект: evidence unit объединяет несколько независимых содержаний так, что на ней строится сильный claim.
 
+Required evidence для `complete`: atomic evidence units, context unit links, missingness and ambiguity labels.
+
 ### 3.3 Evidence unit -> code/output
 
 Проверь:
@@ -103,6 +166,8 @@
 - thresholds и denominators не скрыты.
 
 Блокирующий дефект: score/class/output становится основанием действия без claim rule и use constraint.
+
+Required evidence для `complete`: code definition pack, assignment record, adjudication record, aggregation contract.
 
 ### 3.4 Output -> hypothesis -> claim
 
@@ -116,6 +181,8 @@
 
 Блокирующий дефект: claim сформулирован сильнее, чем позволяет evidence.
 
+Required evidence для `complete`: claim scope, alternatives, counterevidence, falsification tests, evidence relation map.
+
 ### 3.5 Claim -> recommendation -> decision/action
 
 Проверь:
@@ -127,6 +194,8 @@
 - affected parties и reversibility учтены.
 
 Блокирующий дефект: consequential action выполняется без authority или без recourse.
+
+Required evidence для `complete`: claim eligibility, use constraints, oversight mode, recourse path, authority link.
 
 ### 3.6 Review -> approval -> release/use
 
@@ -140,6 +209,8 @@
 
 Блокирующий дефект: review принят за approval или conditional pass превращен в бессрочное разрешение.
 
+Required evidence для `complete`: review record, approval record, gate run result, release/use condition.
+
 ### 3.7 Use -> monitoring -> revision
 
 Проверь:
@@ -150,6 +221,26 @@
 - audit record позволяет восстановить историю.
 
 Блокирующий дефект: решение допускает use, но не имеет условий пересмотра при change, drift or incident.
+
+Required evidence для `complete`: monitoring signals, revalidation triggers, incident path, rollback rules, CAPA tracking.
+
+## 3.8 Формат фиксации по каждому переходу
+
+Используй структуру:
+
+```text
+[transition]
+input: ...
+operation: ...
+output: ...
+rule: ...
+owner_or_reviewer: ...
+evidence: ...
+status: complete|partial|missing|implicit|deferred|out_of_scope|not_applicable|prohibited
+defect_severity: BLOCKING|MAJOR|MINOR|NOTE
+defect: ...
+required_fix: ...
+```
 
 ## 4. Проверка 16 координат
 
@@ -165,6 +256,8 @@ required_fix: что сделать
 ```
 
 Если времени мало, не пропускай координаты молча. Отметь кратко.
+
+Если у координаты статус `missing` или `implicit`, укажи минимальный artifact, который закроет разрыв.
 
 ## 5. Матрица полноты
 
@@ -196,6 +289,8 @@ required_fix: что сделать
 - use/release не имеет gate или authority;
 - audit trail не позволяет восстановить решение.
 
+Нельзя ставить `conditional`, если есть хотя бы один `BLOCKING` дефект.
+
 ## 7. Приоритизация исправлений
 
 Предлагай исправления в порядке зависимостей:
@@ -211,6 +306,13 @@ required_fix: что сделать
 9. Создать traceability/audit pack.
 10. Определить monitoring/revalidation/rollback.
 
+Для каждого шага исправлений указывай:
+
+- `artifact/output`;
+- `owner role`;
+- `acceptance criterion`;
+- `dependency`.
+
 ## 8. Язык аудита
 
 Формулируй строго:
@@ -219,3 +321,13 @@ required_fix: что сделать
 - Не "нет доказательств", а "в предоставленном пакете отсутствуют evidence units, которые поддерживают claim X".
 - Не "можно использовать", а "use допустим только при conditions A/B/C и authority D".
 - Не "эксперт уверен", а "confidence не создает permission; требуется authority/review/release condition".
+
+## 9. Минимум для короткого ответа
+
+Если пользователь просит краткий аудит, все равно обязательно выдай:
+
+1. verdict;
+2. 3-7 ключевых BLOCKING/MAJOR gaps;
+3. главное ограничение claim scope;
+4. conditions before use;
+5. ближайшие 3 шага исправлений по dependency order.

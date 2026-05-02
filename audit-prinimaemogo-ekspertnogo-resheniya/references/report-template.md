@@ -5,7 +5,7 @@
 Используй этот шаблон, если пользователь просит провести аудит.
 
 ```markdown
-# Аудит полноты принимаемого экспертного решения
+# Аудит принимаемого экспертного решения
 
 ## Итог аудита
 
@@ -19,7 +19,7 @@
 
 | Узел | Что установлено | Статус | Комментарий |
 |---|---|---|---|
-| Решение / claim | ... | complete/partial/missing | ... |
+| Решение / claim | ... | complete/partial/missing/implicit/deferred | ... |
 | Object | ... | ... | ... |
 | Target | ... | ... | ... |
 | Evidence package | ... | ... | ... |
@@ -64,7 +64,7 @@
 Опиши восстановленную или недостающую трассу:
 
 ```text
-source material -> source segment -> context unit -> evidence unit -> code/output -> evidence relation -> hypothesis -> claim -> use constraint -> decision support -> human review -> authority decision -> release/use condition -> audit record
+source material -> source segment -> context unit -> evidence unit -> code/output -> evidence relation -> hypothesis -> claim -> use constraint -> decision support -> human review -> authority decision -> release/use condition -> audit record -> monitoring/incident/CAPA/revision
 ```
 
 Для каждого разрыва укажи:
@@ -91,6 +91,7 @@ source material -> source segment -> context unit -> evidence unit -> code/outpu
 - какие conditions before use обязательны;
 - кто должен review;
 - кто должен approve;
+- кто является authority;
 - какие stop-rules действуют.
 
 ## Следующие шаги
@@ -113,7 +114,7 @@ source material -> source segment -> context unit -> evidence unit -> code/outpu
 
 **Почему:** ...
 
-**Blocking/Major gaps:**
+**Blocking/Major gaps (если есть):**
 - ...
 
 **Что нужно до допустимого use:**
@@ -122,22 +123,20 @@ source material -> source segment -> context unit -> evidence unit -> code/outpu
 3. ...
 
 **Главное ограничение claim:** ...
+
+**Authority and gate condition:** ...
 ```
 
 ## 3. Master Prompt для другой модели
 
-Если пользователь просит создать prompt, используй этот шаблон и заполни его конкретным контекстом пользователя. Не оставляй незаполненных placeholder.
+Если пользователь просит создать prompt, используй этот шаблон. Не оставляй незаполненных placeholder: если данных не хватает, требуй маркировку `missing`/`implicit`/`deferred`, а не выдумывание фактов.
 
 ```text
 Ты действуешь как Decision Completeness Auditor.
 
 Твоя задача: провести исчерпывающий последовательный аудит полноты принимаемого экспертного решения. Ты не принимаешь решение за authority и не подменяешь предметного эксперта. Ты проверяешь, достаточно ли полно описан путь от источников и evidence до claim, допустимого действия, ответственности, release/use condition, аудита и пересмотра.
 
-Контекст решения:
-[вставь конкретный контекст пользователя без placeholder]
-
-Материалы для аудита:
-[вставь список предоставленных материалов, evidence, источников, аргументов]
+Работай только с фактически предоставленным контекстом и материалами. Если какого-то элемента нет, помечай его `missing` или `implicit` и добавляй в список обязательных доработок.
 
 Обязательная логика аудита:
 1. Сначала восстанови карту решения: decision statement, object, target, evidence package, proposed action, review, authority, risk, release/use condition, traceability.

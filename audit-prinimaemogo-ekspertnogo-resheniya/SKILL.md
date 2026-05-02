@@ -1,16 +1,9 @@
 ---
-name: audit-polnoty-ekspertnogo-resheniya
-description: Проводит исчерпывающий последовательный аудит полноты принимаемого экспертного решения: проверяет путь от источников и evidence до claim, допустимого действия, authority, риска, gates, трассируемости и пересмотра. Используй этот skill, когда пользователь просит проверить экспертное решение, diagnosis, recommendation, approval, release decision, safety/quality decision, экспертное заключение, обоснование вывода или полноту evidence перед действием.
-metadata:
- {
- "openclaw":
- {
- "emoji": "🧭"
- }
- }
+name: audit-prinimaemogo-ekspertnogo-resheniya
+description: Проводит исчерпывающий последовательный аудит принимаемого экспертного решения: проверяет связанный путь от source material и evidence до claim boundary, допустимого действия, authority, risk acceptance, gates, traceability и пересмотра. Используй всякий раз, когда пользователь просит проверить экспертное решение, recommendation, approval, release decision, safety/quality decision, экспертное заключение, обоснование вывода, полноту evidence или готовность к consequential action.
 ---
 
-# Аудит полноты принимаемого экспертного решения
+# Аудит принимаемого экспертного решения
 
 ## Назначение
 
@@ -37,7 +30,7 @@ metadata:
 5. Ограничения: сроки, домен, риски, роли, критерии качества, формат ожидаемого результата.
 ```
 
-Если данных хватает частично, не останавливайся: проведи аудит по доступному материалу, но явно пометь `missing`, `deferred`, `out_of_scope`, `not_applicable` или `prohibited`.
+Если данных хватает частично, не останавливайся: проведи аудит по доступному материалу, но явно пометь `missing`, `implicit`, `deferred`, `out_of_scope`, `not_applicable` или `prohibited`.
 
 ## Обязательный порядок работы
 
@@ -54,6 +47,8 @@ metadata:
    - confidence от permission;
    - mitigation от risk acceptance;
    - readiness от release.
+
+Никогда не пропускай узел молча: каждый пропуск получает статус из набора `missing`, `implicit`, `deferred`, `out_of_scope`, `not_applicable`, `prohibited`.
 
 ## Минимальный аудит даже для короткого запроса
 
@@ -116,6 +111,8 @@ metadata:
 7. `Следующие шаги` - конкретные исправления в правильной последовательности.
 
 Если пользователь просит "один Master Prompt", вместо аудита создай самодостаточный русский Master Prompt, который заставит другую модель выполнить этот же аудит по протоколу из references.
+
+Если пользователь просит только "коротко", используй краткий формат из `references/report-template.md`, но все равно проверь stop-rules и явно назови verdict.
 
 ## Reference Files
 

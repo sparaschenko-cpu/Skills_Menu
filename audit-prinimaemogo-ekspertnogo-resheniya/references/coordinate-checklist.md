@@ -1,6 +1,12 @@
 # Атомарный чеклист 16 координат
 
-Используй этот файл как матрицу полноты. Для каждой координаты проверь: главный вопрос, обязательные artifacts, атомарные проверки, блокирующие дефекты.
+Используй этот файл как матрицу полноты. Для каждой координаты фиксируй:
+
+- `status`: complete | partial | missing | implicit | deferred | out_of_scope | not_applicable | prohibited
+- `severity`: BLOCKING | MAJOR | MINOR | NOTE
+- `evidence`: что подтверждает статус
+- `gap`: чего не хватает
+- `required_fix`: минимальный шаг исправления
 
 ## 1. Назначение
 
@@ -15,16 +21,21 @@ Artifacts:
 - expected outcome;
 - non-use conditions.
 
+Required evidence for status `complete`:
+- явный документ назначения;
+- список prohibited use;
+- связь intended use с scope evidence и authority.
+
 Atomic checks:
 - Назначение не сведено к функции модели, метрике или классификации.
 - Указано, что решение должно изменить: маршрут, доступ, приоритет, review, release, restriction, intervention.
-- Есть явные prohibited uses.
-- Есть условия, при которых решение не должно применяться.
+- Есть явные prohibited use.
+- Есть условия non-use.
 
 Blocking defects:
-- Decision purpose не определен.
-- Prohibited use отсутствует при consequential decision.
-- Intended use шире evidence, validation or authority scope.
+- decision purpose не определен;
+- prohibited use отсутствует при consequential decision;
+- intended use шире evidence, validation или authority scope.
 
 ## 2. Объект и цель решения
 
@@ -37,15 +48,19 @@ Artifacts:
 - unit of analysis;
 - unit of decision.
 
+Required evidence for status `complete`:
+- отдельные определения object, target и всех unit;
+- связь target с unit of decision.
+
 Atomic checks:
-- Object, target and units названы отдельно.
+- Object, target и units названы отдельно.
 - Unit of decision не подменена unit of observation.
 - Target не смешивает состояние, риск, маршрут, вину, качество и действие.
 - Scope исключает близкие, но другие targets.
 
 Blocking defects:
-- Невозможно понять, к чему применяется решение.
-- Решение применяется к объекту, который не является unit of decision.
+- невозможно понять, к чему применяется решение;
+- решение применяется к объекту, который не является unit of decision.
 
 ## 3. Смысл и определения
 
@@ -60,6 +75,10 @@ Artifacts:
 - prohibited conflation register;
 - prohibited inference register.
 
+Required evidence for status `complete`:
+- ключевые claims используют только определенные concepts;
+- semantic boundaries и prohibited inference задокументированы.
+
 Atomic checks:
 - Каждый ключевой term имеет concept and definition.
 - Есть границы между близкими понятиями.
@@ -67,8 +86,8 @@ Atomic checks:
 - Запрещенные inference названы явно.
 
 Blocking defects:
-- Claim использует неопределенный concept.
-- Решение основано на запрещенном смешении понятий.
+- claim использует неопределенный concept;
+- решение основано на запрещенном смешении понятий.
 
 ## 4. Источники
 
@@ -82,6 +101,11 @@ Artifacts:
 - source quality status;
 - sensitivity/privacy/security classification.
 
+Required evidence for status `complete`:
+- каждый source связан с provenance;
+- sensitive sources имеют use restrictions;
+- excluded sources не участвуют в support для claim.
+
 Atomic checks:
 - Каждый source входит в source frame.
 - Для source есть provenance: кто, когда, как создал/собрал/изменял.
@@ -89,8 +113,8 @@ Atomic checks:
 - Excluded sources не поддерживают claim.
 
 Blocking defects:
-- Claim опирается на source вне source frame.
-- Provenance отсутствует там, где без него нельзя оценить evidence.
+- claim опирается на source вне source frame;
+- provenance отсутствует там, где без него нельзя оценить evidence.
 
 ## 5. Наблюдение и evidence
 
@@ -106,6 +130,11 @@ Artifacts:
 - ambiguity taxonomy;
 - deferral rules.
 
+Required evidence for status `complete`:
+- каждая evidence unit атомарна и имеет locator;
+- observation отделено от interpretation;
+- missingness/ambiguity классифицированы.
+
 Atomic checks:
 - Source segment имеет locator.
 - Evidence unit атомарна.
@@ -114,8 +143,8 @@ Atomic checks:
 - Ambiguity классифицирована.
 
 Blocking defects:
-- Evidence unit неатомарна и поддерживает сильный claim.
-- Claim построен на interpretation, представленной как observation.
+- evidence unit неатомарна и поддерживает сильный claim;
+- claim построен на interpretation, представленной как observation.
 
 ## 6. Кодирование или экспертная категоризация
 
@@ -132,6 +161,11 @@ Artifacts:
 - reliability plan;
 - migration crosswalk.
 
+Required evidence for status `complete`:
+- code passport включает definition/inclusion/exclusion/examples/prohibited uses;
+- assignments связаны с target unit;
+- adjudication зафиксирован для расхождений.
+
 Atomic checks:
 - Каждый code имеет definition, inclusion, exclusion, examples, counterexamples, prohibited uses.
 - Label не используется вместо полного code object.
@@ -139,8 +173,8 @@ Atomic checks:
 - Есть adjudication для расхождений.
 
 Blocking defects:
-- Code превращен в diagnosis/claim/decision без rules.
-- Нет anchors для scale, используемой в claim/action.
+- code превращен в diagnosis/claim/decision без rules;
+- нет anchors для scale, используемой в claim/action.
 
 ## 7. Агрегация и output
 
@@ -155,6 +189,11 @@ Artifacts:
 - uncertainty propagation rules;
 - output interpretation limits.
 
+Required evidence for status `complete`:
+- aggregation contract и denominator явно определены;
+- thresholds управляемы и не скрыты;
+- output limits и uncertainty propagation задокументированы.
+
 Atomic checks:
 - Aggregation contract описан.
 - Denominator определен.
@@ -163,12 +202,12 @@ Atomic checks:
 - Uncertainty propagation учитывает слабые inputs.
 
 Blocking defects:
-- Output принят за claim.
-- Score/probability/confidence принят за permission.
+- output принят за claim;
+- score/probability/confidence принят за permission.
 
 ## 8. Доказательный вывод
 
-Главный вопрос: что можно утверждать на основании evidence and output?
+Главный вопрос: что можно утверждать на основании evidence и output?
 
 Artifacts:
 - hypothesis register;
@@ -180,6 +219,11 @@ Artifacts:
 - epistemic stage register;
 - claim rule register.
 
+Required evidence for status `complete`:
+- claim имеет явный scope;
+- есть связь evidence relation для главных тезисов;
+- alternatives, counterevidence и falsification отражены.
+
 Atomic checks:
 - Claim имеет scope.
 - Evidence relation названа.
@@ -189,9 +233,9 @@ Atomic checks:
 - Evidence freshness учтена.
 
 Blocking defects:
-- Claim scope шире evidence scope.
-- Counterevidence проигнорировано.
-- Epistemic stage перепутана с release status.
+- claim scope шире evidence scope;
+- counterevidence проигнорировано;
+- epistemic stage перепутана с release status.
 
 ## 9. Решение и действие
 
@@ -207,6 +251,11 @@ Artifacts:
 - override rule register;
 - recourse path.
 
+Required evidence for status `complete`:
+- recommendation и decision разделены;
+- есть use constraints и automation boundary;
+- recourse доступен affected parties.
+
 Atomic checks:
 - Recommendation отделена от decision.
 - Use constraints привязаны к claim/output.
@@ -215,9 +264,9 @@ Atomic checks:
 - Override и recourse доступны.
 
 Blocking defects:
-- Действие выполняется без authority.
-- Consequential decision не имеет recourse.
-- Confidence используется как permission.
+- действие выполняется без authority;
+- consequential decision не имеет recourse;
+- confidence используется как permission.
 
 ## 10. Качество
 
@@ -233,15 +282,20 @@ Artifacts:
 - completeness checklist;
 - quality defect register.
 
+Required evidence for status `complete`:
+- качество раскрыто по нескольким измерениям, не одним score;
+- validation scope сопоставлен с intended use/deployment;
+- defects имеют operational effect и обработку.
+
 Atomic checks:
-- Validity, reliability, accuracy, calibration and uncertainty не смешаны.
+- Validity, reliability, accuracy, calibration и uncertainty не смешаны.
 - Validation scope сравнен с deployment/use scope.
 - Transportability проверена для данного context.
 - Quality defects имеют operational effect.
 
 Blocking defects:
-- Validation scope уже intended use scope.
-- Quality сведено к одному confidence/accuracy score.
+- validation scope уже intended use scope;
+- качество сведено к одному confidence/accuracy score.
 
 ## 11. Риск и вред
 
@@ -258,16 +312,21 @@ Artifacts:
 - safety case;
 - recourse and reversibility rules.
 
+Required evidence for status `complete`:
+- risk scenarios учитывают false positive и false negative harm;
+- residual risk отделен от accepted risk;
+- risk acceptance подписан authority role.
+
 Atomic checks:
-- False positive and false negative harms рассмотрены отдельно.
+- False positive и false negative harms рассмотрены отдельно.
 - Residual risk не выдан за accepted risk.
 - Risk acceptance имеет authority.
 - Reversibility оценена.
 - Safety case не сведен к mitigation list.
 
 Blocking defects:
-- Consequential decision без risk acceptance.
-- Невозможность исправить ошибку не отражена в risk profile.
+- consequential decision без risk acceptance;
+- невозможность исправить ошибку не отражена в risk profile.
 
 ## 12. Governance и ответственность
 
@@ -284,16 +343,21 @@ Artifacts:
 - conflict of interest register;
 - independence register.
 
+Required evidence for status `complete`:
+- review, approval и authority зафиксированы раздельно;
+- есть контроль conflict of interest;
+- известен veto-holder.
+
 Atomic checks:
-- Responsible, accountable, reviewer, approver and authority различены.
+- Responsible, accountable, reviewer, approver и authority различены.
 - Reviewer independence проверена.
 - Conflict of interest описан.
 - Veto-holder известен.
 
 Blocking defects:
-- Review принят за approval.
-- Responsibility принята за authority.
-- Expertise принята за independence.
+- review принят за approval;
+- responsibility принята за authority;
+- expertise принята за independence.
 
 ## 13. Контроль и gates
 
@@ -309,17 +373,22 @@ Artifacts:
 - CAPA rule register;
 - enforcement layer.
 
+Required evidence for status `complete`:
+- gate sheet содержит inputs, pass/fail criteria, roles, release effect;
+- stop-rules исполнимы;
+- waiver/exception ограничены scope/time/authority.
+
 Atomic checks:
 - Gate имеет inputs, pass/fail criteria, reviewer, approver, release effect, audit record.
 - Stop-rules исполнимы.
 - Waiver ограничен scope/time/authority.
 - Exception не является молчаливым обходом.
-- CAPA имеет owner and acceptance criteria.
+- CAPA имеет owner и acceptance criteria.
 
 Blocking defects:
-- Нет gate перед release/use.
-- Waiver используется как постоянное разрешение.
-- Checklist выдан за gate.
+- нет gate перед release/use;
+- waiver используется как постоянное разрешение;
+- checklist выдан за gate.
 
 ## 14. Время и изменения
 
@@ -335,6 +404,11 @@ Artifacts:
 - rollback rules;
 - retirement rules.
 
+Required evidence for status `complete`:
+- change classes выделены и связаны с impact;
+- drift/incident triggers ведут к revalidation;
+- rollback имеет owner и criteria.
+
 Atomic checks:
 - Lifecycle phase известна.
 - Change classes различены: semantic, evidence, threshold, model, policy, release-critical.
@@ -342,12 +416,12 @@ Atomic checks:
 - Rollback возможен и ответственен.
 
 Blocking defects:
-- Release допускается без monitoring/revalidation triggers.
-- Threshold/source/schema changes не считаются potentially release-critical.
+- release допускается без monitoring/revalidation triggers;
+- threshold/source/schema changes не считаются potentially release-critical.
 
 ## 15. Машинная форма
 
-Главный вопрос: как человекочитаемый смысл сохраняется в records, schemas and validators?
+Главный вопрос: как человекочитаемый смысл сохраняется в records, schemas и validators?
 
 Artifacts:
 - schema registry;
@@ -359,6 +433,11 @@ Artifacts:
 - migration rules;
 - schema parity tests.
 
+Required evidence for status `complete`:
+- human-readable specification отражена в schema;
+- enums и boundaries согласованы;
+- migrations не меняют смысл молча.
+
 Atomic checks:
 - Human-readable specification отражена в schema.
 - Enums совпадают с semantic boundaries.
@@ -366,8 +445,8 @@ Atomic checks:
 - Migration не меняет смысл молча.
 
 Blocking defects:
-- Schema validity принята за semantic validity.
-- Schema меняет meaning без human-readable supersession.
+- schema validity принята за semantic validity;
+- schema меняет meaning без human-readable supersession.
 
 ## 16. Трассируемость и аудит
 
@@ -382,13 +461,18 @@ Artifacts:
 - audit pack;
 - reconstructability test.
 
+Required evidence for status `complete`:
+- trace edges покрывают путь source -> evidence -> output -> claim -> decision -> release;
+- audit record связывает decision, evidence и authority;
+- reconstructability test пройден или запланирован с датой.
+
 Atomic checks:
-- Есть trace edges между source, evidence, code/output, claim, decision and release.
-- Evidence ledger содержит locators and provenance.
+- Есть trace edges между source, evidence, code/output, claim, decision и release.
+- Evidence ledger содержит locators и provenance.
 - Step log фиксирует review/calculation/change/release.
 - Audit pack позволяет независимую проверку.
 - Reconstructability test пройден или запланирован.
 
 Blocking defects:
-- Аудитор не может восстановить путь от source material до release/use condition.
-- Audit record не связывает decision with evidence and authority.
+- аудитор не может восстановить путь от source material до release/use condition;
+- audit record не связывает decision с evidence и authority.

@@ -1,0 +1,83 @@
+{
+  "skill_name": "audit-prinimaemogo-ekspertnogo-resheniya",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Проведи аудит полноты экспертного решения: команда хочет автоматически отклонять заявки клиентов, если модель риска выдает score выше 0.82. Есть описание модели, но нет матрицы authority, recourse и risk acceptance.",
+      "expected_output": "Отчет должен восстановить карту решения, отделить score от permission, выявить blocking gaps по authority/recourse/risk acceptance и предложить условия до use.",
+      "files": [],
+      "expectations": [
+        "Output explicitly states that score/confidence is not permission.",
+        "Output identifies missing authority or approval as a blocking or major defect.",
+        "Output checks recourse for affected parties.",
+        "Output includes a trace from evidence/output to claim/action or identifies trace gaps.",
+        "Output provides ordered next steps with artifacts or owners."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Сделай короткую проверку экспертного заключения врача: на основании одного анализа предлагается изменить терапию. В документе нет альтернативных гипотез, counterevidence, freshness evidence и review/approval разделены неявно.",
+      "expected_output": "Короткий аудит должен не давать медицинского решения, а проверить полноту evidence, claim boundary, alternatives, counterevidence, review vs approval и условия допустимого применения.",
+      "files": [],
+      "expectations": [
+        "Output does not make the medical decision for the clinician.",
+        "Output flags missing alternative hypotheses and counterevidence.",
+        "Output distinguishes review from approval.",
+        "Output limits claim scope to the available evidence.",
+        "Output uses a verdict such as conditional, not ready, blocked, or insufficient material."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Создай Master Prompt для другой модели, чтобы она провела аудит полноты решения о production release диагностической системы после пилота. Пилот показал хорошую accuracy, но нет safety case, gate sheet, rollback rules и reconstructability test.",
+      "expected_output": "Результатом должен быть самодостаточный русский Master Prompt, который требует проверки 16 координат, stop-rules, risk acceptance, gates, rollback, traceability and audit pack.",
+      "files": [],
+      "expectations": [
+        "Output is a Master Prompt rather than an audit report.",
+        "Master Prompt includes all 16 coordinate areas or an equivalent exhaustive list.",
+        "Master Prompt treats pilot readiness as different from production readiness.",
+        "Master Prompt requires safety case, gates, rollback, and reconstructability checks.",
+        "Master Prompt forbids using accuracy alone as release permission."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Проведи аудит экспертного решения по инциденту: вывод основан на скриншоте и пересказе разговора, но нет source frame, provenance и locator для evidence units. При этом предлагается дисциплинарное действие.",
+      "expected_output": "Отчет должен явно показать, что источники и provenance невалидны для сильного claim, отметить блокировку consequential action и потребовать корректный evidence package.",
+      "files": [],
+      "expectations": [
+        "Output flags source frame/provenance gaps as blocking or major.",
+        "Output distinguishes material from evidence unit.",
+        "Output requires locators for cited source segments.",
+        "Output prevents action until evidence and authority conditions are met.",
+        "Output includes dependency-ordered remediation steps."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Проверь полноту решения о запуске диагностики в production: есть pilot accuracy 0.93 и позитивный отзыв команды, но отсутствуют gate sheets, stop-rules, rollback plan, monitoring signals и revalidation triggers.",
+      "expected_output": "Аудит должен отделить pilot readiness от production readiness, выявить gaps по governance/gates/change-management и дать verdict не выше conditional/not ready.",
+      "files": [],
+      "expectations": [
+        "Output explicitly separates pilot readiness from production readiness.",
+        "Output requires gate sheet and stop-rule artifacts before release.",
+        "Output requires rollback and monitoring/revalidation setup.",
+        "Output does not use accuracy alone as release permission.",
+        "Output references authority decision and release/use conditions."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Сгенерируй один Master Prompt для другой модели, чтобы она провела аудит полноты экспертного решения в кейсе кредитного скоринга с высокой социальной значимостью. В текущем описании неясны recourse, risk acceptance и traceability.",
+      "expected_output": "Результатом должен быть самодостаточный русский Master Prompt с обязательными статусами полноты, stop-rules, 16 координатами, требованиями к authority/recourse/risk acceptance и запретом выдумывать отсутствующие данные.",
+      "files": [],
+      "expectations": [
+        "Output is a single Master Prompt in Russian.",
+        "Master Prompt includes statuses like complete/partial/missing/implicit/deferred.",
+        "Master Prompt includes 16 coordinates or an equivalent complete coordinate map.",
+        "Master Prompt includes stop-rules for claim scope, authority, review vs approval, and traceability.",
+        "Master Prompt instructs to mark missing data instead of fabricating facts."
+      ]
+    }
+  ]
+}
